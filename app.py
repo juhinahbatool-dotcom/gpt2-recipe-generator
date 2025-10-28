@@ -9,7 +9,7 @@ import zipfile
 # CONFIGURATION
 # -------------------------------
 # Replace this with your actual Google Drive shareable link
-DRIVE_FILE_URL = "https://drive.google.com/file/d/1rMqY_RfLSY_Y-OnQ9wM4fW25kPRVZs_C/view?usp=sharing"
+DRIVE_FILE_URL = "https://drive.google.com/drive/folders/1IVvaIWMYmcOEJMSPUggUt8lBvoQXAnzt?usp=sharing"
 MODEL_ZIP_PATH = "fine_tuned_gpt2_recipes.zip"
 MODEL_DIR = "fine_tuned_gpt2_recipes"
 
