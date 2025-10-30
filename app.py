@@ -55,21 +55,26 @@ if generate_btn:
     if input_text.strip() == "":
         st.warning("Please enter some ingredients or dish name.")
     else:
+        prompt = f"Recipe for {input_text}:\nIngredients:\n"
+        input_ids = tokenizer.encode(prompt, return_tensors='pt')
+
         with st.spinner("Generating recipe... please wait..."):
-            input_ids = tokenizer.encode(input_text, return_tensors='pt')
             output = model.generate(
                 input_ids,
                 max_length=max_length,
-                temperature=0.8,
-                top_p=0.95,
+                temperature=0.6,
+                top_p=0.9,
                 repetition_penalty=1.2,
+                no_repeat_ngram_size=2,
                 do_sample=True,
                 pad_token_id=tokenizer.eos_token_id
             )
             generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
-        
+            # Optional: clean up or truncate output here
+
         st.subheader("🍽️ Generated Recipe:")
         st.write(generated_text)
+
 
 # -------------------------------
 # FOOTER
